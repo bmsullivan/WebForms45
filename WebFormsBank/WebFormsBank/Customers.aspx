@@ -4,6 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <div>
+        <asp:CheckBox runat="server" ID="preferredOnly" AutoPostBack="True" Text="Preferred Customers Only"/>
+    </div>
     <asp:GridView runat="server" ID="gvCustomers" ItemType="WebFormsBank.Models.Customer" SelectMethod="GetCustomers"
                   AllowPaging="True" PageSize="10" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id">
         <Columns>

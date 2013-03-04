@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Entity;
+using System.Web.ModelBinding;
 
 namespace WebFormsBank
 {
@@ -18,9 +19,11 @@ namespace WebFormsBank
         {
         }
 
-        public IQueryable<Customer> GetCustomers()
+        public IQueryable<Customer> GetCustomers([Control]bool preferredOnly)
         {
-            return _context.Customers.Include(c => c.Branch);
+            return _context.Customers
+                .Where(c => !preferredOnly || c.Accounts.Count() > 1)
+                .Include(c => c.Branch);
         }
     }
 }
