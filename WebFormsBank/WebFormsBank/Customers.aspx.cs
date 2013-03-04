@@ -31,5 +31,15 @@ namespace WebFormsBank
         {
             return _context.Branches;
         }
+
+        public void UpdateCustomer(int id)
+        {
+            var cust = _context.Customers.Find(id);
+            TryUpdateModel(cust);
+            if (ModelState.IsValid)
+            {
+                _context.SaveChanges();
+            }
+        }    
     }
 }
