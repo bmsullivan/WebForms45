@@ -19,11 +19,17 @@ namespace WebFormsBank
         {
         }
 
-        public IQueryable<Customer> GetCustomers([Control]bool preferredOnly)
+        public IQueryable<Customer> GetCustomers([Control]bool preferredOnly, [Control("gvBranches")]int? branchID)
         {
             return _context.Customers
-                .Where(c => !preferredOnly || c.Accounts.Count() > 1)
+                .Where(c => (!preferredOnly || c.Accounts.Count() > 1)
+                    && (branchID == null || c.HomeBranch_Id == branchID))
                 .Include(c => c.Branch);
+        }
+
+        public IQueryable<Branch> GetBranches()
+        {
+            return _context.Branches;
         }
     }
 }
