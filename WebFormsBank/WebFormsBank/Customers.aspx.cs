@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.Entity;
 
 namespace WebFormsBank
 {
@@ -15,8 +16,11 @@ namespace WebFormsBank
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvCustomers.DataSource = _context.Customers.Take(10).ToList();
-            gvCustomers.DataBind();
+        }
+
+        public IQueryable<Customer> GetCustomers()
+        {
+            return _context.Customers.Include(c => c.Branch);
         }
     }
 }
