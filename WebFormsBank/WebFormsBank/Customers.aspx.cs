@@ -15,8 +15,8 @@ namespace WebFormsBank
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            rptCustomers.DataSource = _context.Customers.Take(10).ToList();
-            rptCustomers.DataBind();
+            gvCustomers.DataSource = _context.Customers.Take(10).ToList();
+            gvCustomers.DataBind();
         }
     }
 }
