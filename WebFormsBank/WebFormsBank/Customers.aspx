@@ -5,9 +5,9 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <ul>
-        <asp:Repeater runat="server" ID="rptCustomers">
+        <asp:Repeater runat="server" ID="rptCustomers" ItemType="WebFormsBank.Models.Customer">
             <ItemTemplate>
-                <li><%# Eval("Name") %> - <%# Eval("PhoneNumber") %></li>
+                <li><%#: Item.Name %> - <%#: Item.PhoneNumber %></li>
             </ItemTemplate>
         </asp:Repeater>
     </ul>
