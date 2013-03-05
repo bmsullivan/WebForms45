@@ -24,7 +24,7 @@
                   AllowPaging="True" PageSize="10" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id">
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" ReadOnly="True"/>
-            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"/>
+            <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" ValidateRequestMode="Disabled"/>
             <asp:BoundField DataField="HomeAddress_AddressLine1" HeaderText="AddressLine1" SortExpression="HomeAddress_AddressLine1"/>
             <asp:BoundField DataField="HomeAddress_AddressLine2" HeaderText="AddressLine2" SortExpression="HomeAddress_AddressLine2"/>
             <asp:BoundField DataField="HomeAddress_City" HeaderText="City" SortExpression="HomeAddress_City"/>
