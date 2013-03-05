@@ -33,6 +33,11 @@ namespace WebFormsBank
                 "~/Scripts/modernizr-*"));
 
             bundles.Add(new DynamicFolderBundle("js", "*.js", new JsMinify()));
+
+            var lessBundle = new Bundle("~/Less").IncludeDirectory("~/Content", "*.less");
+            lessBundle.Transforms.Add(new LessTransform());
+            lessBundle.Transforms.Add(new CssMinify());
+            bundles.Add(lessBundle);        
         }
     }
 }
